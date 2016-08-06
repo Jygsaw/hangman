@@ -19,6 +19,56 @@
     <!-- Libraries: end -->
   </head>
   <body>
-    <button id="testBtn">Click ME!</button>
+    <h1>H A N G M A N</h1>
+    <div id="display">
+
+      <div id="phrase"></div>
+
+      <div id="tries_left">
+        <label>Misses Left:</label><span id="tries"></span>
+      </div>
+
+      <div id="letters_used">
+        <label>Letters Used:</label><span id="letters"></span>
+      </div>
+
+      <div id="instructions">
+        Press any key to guess a letter.
+        <div class="note">(Only alphabetical characters)</div>
+      </div>
+    </div>
+
+    <!-- Modals: begin -->
+    <form id="set_email_form">
+    <div id="email_prompt" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">W O P R</div>
+          <div class="modal-body">
+            May I know your email?
+            <input id="email" type="text" class="form-control" name="email" placeholder="anon@example.com">
+          </div>
+          <div class="modal-footer">
+            <span class="cancel glyphicon glyphicon-remove" aria-hidden="true" data-dismiss="modal"></span>
+            <span id="set_email_submit" class="confirm glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+    <div id="play_prompt" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header"></div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <span class="cancel glyphicon glyphicon-remove" aria-hidden="true" data-dismiss="modal"></span>
+            <span id="start_game" class="confirm glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modals: end -->
   </body>
 </html>
