@@ -33,6 +33,10 @@ h1 {
   margin: 0.25em;
 }
 
+.error {
+  color: #C00;
+}
+
 #display {
   position: relative;
   width: 100%;

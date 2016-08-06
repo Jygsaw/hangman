@@ -8,13 +8,7 @@
   // DOM ready
   $(function () {
     // attach email_prompt handlers
-    $("#set_email_form").on("submit", function (event) {
-      event.preventDefault();
-      let email = $(event.target).find("input").first().val();
-      setEmail(email);
-      $("#email_prompt").modal("hide");
-      promptUser();
-    });
+    $("#set_email_form").on("submit", setEmail);
     $("#set_email_submit").on("click", function (event) {
       $(event.target).closest("form").submit();
     });
@@ -59,7 +53,9 @@ function promptUser() {
 }
 
 function promptEmail() {
-  $("#email_prompt").modal("show");
+  let prompt = $("#email_prompt");
+  prompt.find(".error").text("");
+  prompt.modal("show");
 }
 
 function promptGame(state) {
@@ -83,12 +79,22 @@ function promptMsg(msg) {
   notice.modal("show");
 }
 
-function setEmail(email) {
-  // use a dummy email if none given
-  if (email === "") {
-    email = "anon@example.com";
+function setEmail(event) {
+  event.preventDefault();
+  let email = $(event.target).find("input").first().val();
+  let prompt = $("#email_prompt");
+  if (validateEmail(email)) {
+    // use a dummy email if none given
+    if (email === "") {
+      email = "anon@example.com";
+    }
+    window.hangman.email = email;
+    prompt.modal("hide");
+    promptUser();
+  } else {
+    let msg = "That is not a valid email. If you do not want to use your real email, you can use \"anon@example.com\".";
+    prompt.find(".error").first().text(msg);
   }
-  window.hangman.email = email;
 }
 
 function initGame() {
@@ -210,4 +216,9 @@ function renderGame() {
       letters.append(" ");
     }
   }
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
 }
