@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.modal-header {
+  text-align: center;
+  font-size: 2em;
+}
+.modal-body {
+  text-align: center;
+}
+.modal-footer .glyphicon {
+  font-size: 2em;
+}
+.modal-footer .cancel {
+  color: red;
+  float: left;
+  margin-left: 2em;
+}
+.modal-footer .confirm {
+  color: green;
+  float: right;
+  margin-right: 2em;
+}
+
+.letter {
+  text-transform: uppercase;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
+#display {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#phrase {
+  padding: 1em;
+  line-height: 2.5em;
+  font-weight: bold;
+}
+
+#tries_left {
+  padding: 1em;
+  line-height: 2.5em;
+}
+#tries_left label {
+  margin: 0;
+  vertical-align: middle;
+}
+#tries_left .try-icon {
+  font-size: 2em;
+  margin: 0.25em;
+  vertical-align: middle;
+  color: green;
+}
+#tries_left .fail {
+  color: red;
+}
+
+#letters_used {
+  padding: 1em;
+  line-height: 2.5em;
+}
+#letters_used label {
+  margin: 0;
+  vertical-align: middle;
+}
+#letters_used .letter {
+  background: #CCC;
+  margin: 0.25em;
+  vertical-align: middle;
+}
+
+#instructions {
+  font-size: 1em;
+}
+#instructions .note {
+  font-size: 0.8em;
+  color: #666;
+}
