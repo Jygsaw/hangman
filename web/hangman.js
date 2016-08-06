@@ -77,6 +77,12 @@ function promptGame(state) {
   prompt.modal("show");
 }
 
+function promptMsg(msg) {
+  let notice = $("#msg_prompt");
+  notice.find(".modal-body").text(msg);
+  notice.modal("show");
+}
+
 function setEmail(email) {
   // use a dummy email if none given
   if (email === "") {
@@ -154,7 +160,11 @@ function guessLetter(event) {
       window.hangman.letters[letter] = true;
       $("#guesses").text($("#guesses").text() + letter);
       updateGame({ guess: letter });
+    } else {
+      promptMsg("You've already guessed that letter.  You should try again.");
     }
+  } else {
+    promptMsg("That is not a letter.  You can guess any letter from A to Z.");
   }
 }
 
